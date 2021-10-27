@@ -6,7 +6,6 @@ import copy
 import examples
 import logging
 import random
-# Package installation
 import subprocess
 import sys
 
@@ -14,7 +13,7 @@ import sys
 with open("main.log", "w+") as fp: pass
 logging.basicConfig(filename="main.log", level=logging.INFO)
 
-
+# Package installation
 def install(package: str) -> None:
     """
     Uses pip to install the specified package.
