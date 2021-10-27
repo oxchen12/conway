@@ -34,7 +34,6 @@ finally:
 
 # Colors
 BLACK = (0, 0, 0)
-GRAY = (176, 176, 176)
 WHITE = (250, 250, 250)
 
 # pygame
@@ -84,10 +83,10 @@ def main():
 
 def step(grid: list[list[int]]) -> list[list[int]]:
     """
-    Steps the grid forward 1 generation based on the GoL rules. Modifies the grid in place.
+    Steps the grid forward 1 generation based on the GoL rules.
 
     :param grid: the grid to modify
-    :return: None
+    :return: the grid stepped forward a generation
     """
 
     grid_out: list[list[int]] = copy.deepcopy(grid)
