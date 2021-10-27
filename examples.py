@@ -15,12 +15,48 @@ def get_example(name: str, grid_width: int, grid_height: int) -> list[list[int]]
     midgrid = lambda sub, w=grid_width, h=grid_height: (sub, w // 2 - len(sub[0]) // 2, h // 2 - len(sub) // 2)
     out: list[list[int]] = empty()
     match name.lower().strip():
+        # oscillators
         case "blinker":
-            subgrid = [[0, 1, 0], [0, 1, 0], [0, 1, 0]]
+            subgrid = [[0, 1, 0],
+                       [0, 1, 0],
+                       [0, 1, 0]]
+        case "pulsar":
+            subgrid = [[0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0],
+                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                       [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+                       [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+                       [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+                       [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0],
+                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                       [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0],
+                       [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+                       [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+                       [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1],
+                       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                       [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0]]
+        case "pentadecathalon":
+            subgrid = [[1, 1, 1],
+                       [1, 0, 1],
+                       [1, 1, 1],
+                       [1, 1, 1],
+                       [1, 1, 1],
+                       [1, 1, 1],
+                       [1, 0, 1],
+                       [1, 1, 1]]
+        # Methuselahs
         case "r-pentomino":
-            subgrid = [[0, 1, 1], [1, 1, 0], [0, 1, 0]]
+            subgrid = [[0, 1, 1],
+                       [1, 1, 0],
+                       [0, 1, 0]]
         case "diehard":
-            subgrid = [[0, 0, 0, 0, 0, 0, 1, 0], [1, 1, 0, 0, 0, 0, 0, 0,], [0, 1, 0, 0, 0, 1, 1, 1]]
+            subgrid = [[0, 0, 0, 0, 0, 0, 1, 0],
+                       [1, 1, 0, 0, 0, 0, 0, 0],
+                       [0, 1, 0, 0, 0, 1, 1, 1]]
+        case "acorn":
+            subgrid = [[0, 1, 0, 0, 0, 0, 0],
+                       [0, 0, 0, 1, 0, 0, 0],
+                       [1, 1, 0, 0, 1, 1, 1]]
+        # no example exists
         case _:
             raise ValueError(f"Couldn't find example {name}")
     replace_at(out, *midgrid(subgrid))
