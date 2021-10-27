@@ -38,14 +38,14 @@ GRAY = (176, 176, 176)
 WHITE = (250, 250, 250)
 
 # pygame
-WRAP = False    # flag for wrapping
+WRAP = True    # flag for wrapping
 SQUARE = 10
-GRID_WIDTH = 150
+GRID_WIDTH = 100
 GRID_HEIGHT = 100
 WIDTH = GRID_WIDTH * SQUARE
 HEIGHT = GRID_HEIGHT * SQUARE
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
-FPS = 1000
+FPS = 30
 pygame.display.set_caption("Conway's Game of Life")
 
 
@@ -58,7 +58,7 @@ def main():
 
     # Initialize grid
     # grid: list[list[int]] = [[random.randint(0, 1) for i in range(GRID_WIDTH)] for j in range(GRID_HEIGHT)]
-    grid = examples.get_example("diehard", GRID_WIDTH, GRID_HEIGHT)
+    grid = examples.get_example("stones", GRID_WIDTH, GRID_HEIGHT)
 
     background = pygame.Surface(SCREEN.get_size()).convert()
     background.fill((0, 0, 0))
