@@ -58,15 +58,6 @@ def main():
     # grid: list[list[int]] = [[random.randint(0, 1) for i in range(GRID_WIDTH)] for j in range(GRID_HEIGHT)]
     grid = examples.get_example("stones", GRID_WIDTH, GRID_HEIGHT)
 
-<<<<<<< HEAD
-    background = pygame.Surface(SCREEN.get_size()).convert()
-    background.fill("white")
-
-    SCREEN.blit(background, (0, 0))
-    pygame.display.update()
-
-=======
->>>>>>> b2cb3d161d39dbb0ea7233d0b36d6574dd5fa5cf
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: return
