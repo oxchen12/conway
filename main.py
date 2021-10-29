@@ -37,11 +37,11 @@ WHITE = (250, 250, 250)
 
 # pygame
 WRAP = True    # flag for wrapping
-SQUARE = 10
+SIZE = 10
 GRID_WIDTH = 100
 GRID_HEIGHT = 100
-WIDTH = GRID_WIDTH * SQUARE
-HEIGHT = GRID_HEIGHT * SQUARE
+WIDTH = GRID_WIDTH * SIZE
+HEIGHT = GRID_HEIGHT * SIZE
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 FPS = 30
 pygame.display.set_caption("Conway's Game of Life")
@@ -58,14 +58,23 @@ def main():
     # grid: list[list[int]] = [[random.randint(0, 1) for i in range(GRID_WIDTH)] for j in range(GRID_HEIGHT)]
     grid = examples.get_example("stones", GRID_WIDTH, GRID_HEIGHT)
 
+<<<<<<< HEAD
+    background = pygame.Surface(SCREEN.get_size()).convert()
+    background.fill("white")
+
+    SCREEN.blit(background, (0, 0))
+    pygame.display.update()
+
+=======
+>>>>>>> b2cb3d161d39dbb0ea7233d0b36d6574dd5fa5cf
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: return
 
         for i, row in enumerate(grid):
             for j, cell in enumerate(row):
-                x, y = SQUARE * j, SQUARE * i
-                sq = pygame.Rect(x, y, SQUARE, SQUARE)
+                x, y = SIZE * j, SIZE * i
+                sq = pygame.Rect(x, y, SIZE, SIZE)
                 pygame.draw.rect(SCREEN, WHITE if cell else BLACK, sq, 0)
 
         grid = step(grid)
